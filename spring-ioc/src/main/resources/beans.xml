@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    <bean id="address" class="com.example.springbootdemo.entity.Address">-->
+<!--        <property name="address" value="安徽省淮南市"/>-->
+<!--    </bean>-->
+
+    <bean id="address" class="com.example.springioc.pojo.Address" p:address="安徽淮南">
+    </bean>
+
+    <bean id="user" class="com.example.springioc.pojo.User" c:userId="1" c:idCard="123" c:userName="lssi">
+<!--        <constructor-arg name="userId" value="12"/>-->
+<!--        <constructor-arg name="idCard" value="123213"/>-->
+<!--        <constructor-arg name="userName" value="zhangsan"/>-->
+    </bean>
+
+    <bean id="student" class="com.example.springioc.pojo.Student">
+        <property name="name" value="zahngsan"/>
+<!--        <constructor-arg name="name" value="张三a"/> &lt;!&ndash;使用参数名&ndash;&gt;-->
+<!--        <constructor-arg index="0" value="张三a"/> &lt;!&ndash;使用下标&ndash;&gt;-->
+<!--        <constructor-arg type="java.lang.String" value="张三a"/> &lt;!&ndash;使用类型&ndash;&gt;-->
+        <property name="address" ref="address"/>
+
+        <property name="books">
+            <array>
+                <value>红楼梦</value>
+                <value>水浒传</value>
+                <value>三国演义</value>
+                <value>西游记</value>
+            </array>
+        </property>
+
+        <property name="hobbys">
+            <list>
+                <value>篮球</value>
+                <value>把妹</value>
+                <value>唱歌</value>
+            </list>
+        </property>
+
+        <property name="card">
+            <map>
+                <entry key="1" value="身份证"/>
+                <entry key="2" value="学生证"/>
+            </map>
+        </property>
+
+        <property name="games">
+            <set>
+                <value>lol</value>
+                <value>cf</value>
+            </set>
+        </property>
+
+        <property name="wife">
+            <null/>
+        </property>
+
+        <property name="info">
+            <props>
+                <prop key="username">root</prop>
+                <prop key="password">12312321355</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>
